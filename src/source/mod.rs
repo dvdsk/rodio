@@ -144,6 +144,14 @@ where
     /// `None` indicates at the same time "infinite" or "unknown".
     fn total_duration(&self) -> Option<Duration>;
 
+    /// Request the source to go to a position, returning if succeeded
+    ///
+    /// The default implementation does nothing, always returning false. This method can
+    /// be overridden by source implementations to allow seeking
+    fn request_pos(&self, pos: f32) -> bool {
+        false
+    }
+
     /// Stores the source in a buffer in addition to returning it. This iterator can be cloned.
     #[inline]
     fn buffered(self) -> Buffered<Self>

@@ -150,6 +150,16 @@ where
                 .unwrap_or(Duration::from_secs(0))
         })
     }
+
+    fn request_pos(&self, pos: f32) -> bool {
+        if self.input.request_pos(pos) {
+
+            true
+        } else {
+            false
+        }
+
+    }
 }
 
 #[cfg(test)]

@@ -106,4 +106,8 @@ where
             .total_duration()
             .map(|val| val + self.requested_duration)
     }
+    
+    fn request_pos(&self, pos: f32) -> bool {
+        self.request_pos(pos)
+    }
 }

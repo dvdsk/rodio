@@ -29,6 +29,7 @@ struct Controls {
     pause: AtomicBool,
     volume: Mutex<f32>,
     stopped: AtomicBool,
+    set_pos: Mutex<Option<f32>>,
 }
 
 impl Sink {
@@ -52,6 +53,7 @@ impl Sink {
                 pause: AtomicBool::new(false),
                 volume: Mutex::new(1.0),
                 stopped: AtomicBool::new(false),
+                set_pos: Mutex::new(None),
             }),
             sound_count: Arc::new(AtomicUsize::new(0)),
             detached: false,
@@ -78,9 +80,12 @@ impl Sink {
                     src.stop();
                 } else {
                     src.inner_mut().set_factor(*controls.volume.lock().unwrap());
-                    src.inner_mut()
-                        .inner_mut()
+                    src.inner_mut().inner_mut()
                         .set_paused(controls.pause.load(Ordering::SeqCst));
+                    if let Some(pos) = *controls.set_pos.lock().unwrap(){ 
+                        src.inner_mut().inner_mut().inner_mut()
+                            .request_pos(pos);
+                    }
                 }
             })
             .convert_samples();
@@ -106,6 +111,21 @@ impl Sink {
     pub fn set_volume(&self, value: f32) {
         *self.controls.volume.lock().unwrap() = value;
     }
+
+    /// Go to a position.
+    /// 
+    /// Seek to a time in the currently playing source
+    pub fn set_pos(&self, value: f32) {
+        todo!()
+    }
+
+    /// Get the current position of a playing song
+    ///
+    /// Returns the position in seconds
+    pub fn get_pos(&self) -> f32 {
+        todo!()
+    }
+
 
     /// Resumes playback of a paused sink.
     ///

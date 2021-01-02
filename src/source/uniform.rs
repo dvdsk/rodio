@@ -142,6 +142,14 @@ where
     fn total_duration(&self) -> Option<Duration> {
         self.total_duration
     }
+
+    // fn request_pos(&self, pos: f32) -> bool {
+    //     if let Some(data_converter) = self.inner {
+    //         data_converter.input.input.iter.request_pos(pos)
+    //     } else {
+    //         false
+    //     }
+    // }
 }
 
 #[derive(Clone, Debug)]

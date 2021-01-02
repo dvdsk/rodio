@@ -136,6 +136,10 @@ where
     fn total_duration(&self) -> Option<Duration> {
         None
     }
+    
+    fn request_pos(&self, pos: f32) -> bool {
+        self.request_pos(pos)
+    }
 }
 
 #[cfg(test)]

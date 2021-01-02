@@ -116,4 +116,8 @@ where
     fn total_duration(&self) -> Option<Duration> {
         self.input.total_duration()
     }
+
+    fn request_pos(&self, pos: f32) -> bool {
+        self.input.request_pos(pos)
+    }
 }

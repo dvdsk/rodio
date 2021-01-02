@@ -120,4 +120,8 @@ where
             _ => None,
         }
     }
+    
+    fn request_pos(&self, pos: f32) -> bool {
+        self.request_pos(pos)
+    }
 }

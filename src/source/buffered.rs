@@ -209,6 +209,10 @@ where
     fn total_duration(&self) -> Option<Duration> {
         self.total_duration
     }
+
+    fn request_pos(&self, pos: f32) -> bool {
+        self.request_pos(pos)
+    }
 }
 
 impl<I> Clone for Buffered<I>

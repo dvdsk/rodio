@@ -46,4 +46,8 @@ where
     fn total_duration(&self) -> Option<Duration> {
         Some(Duration::new(0, 0))
     }
+    
+    fn request_pos(&self, pos: f32) -> bool {
+        self.request_pos(pos)
+    }
 }
