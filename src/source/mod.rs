@@ -432,3 +432,8 @@ pub trait SourceExt {
     /// Seek to pos and whether the seek succeeded
     fn request_pos(&self, pos: f32) -> bool;
 }
+
+pub trait TestTitle {
+    /// Seek to pos and whether the seek succeeded
+    fn test(&self);
+}

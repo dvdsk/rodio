@@ -9,7 +9,9 @@ use std::mem;
 use std::str::FromStr;
 use std::time::Duration;
 
-use crate::{Source, SourceExt};
+use crate::Source;
+use crate::SourceExt;
+use crate::TestTitle;
 
 #[cfg(feature = "symphonia")]
 use self::read_seek_source::ReadSeekSource;
@@ -380,7 +382,7 @@ where
             #[cfg(feature = "flac")]
             DecoderImpl::Flac(ref source) => false,
             #[cfg(feature = "mp3")]
-            DecoderImpl::Mp3(ref source) => source.request_pos(pos),
+            DecoderImpl::Mp3(ref source) => {(*source).test(); false},
             DecoderImpl::None(_) => false,
         };
         todo!();

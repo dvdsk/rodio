@@ -72,6 +72,15 @@ where
     }
 }
 
+impl<R> crate::TestTitle for Decoder<R>
+where
+    R: Read + Seek,
+{
+    fn test(&self) {
+        dbg!("testy test");
+    }
+}
+
 impl<R> Iterator for Mp3Decoder<R>
 where
     R: Read + Seek,
