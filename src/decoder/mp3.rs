@@ -62,22 +62,13 @@ where
     }
 }
 
-impl<R> SourceExt for Decoder<R>
+impl<R> SourceExt for Mp3Decoder<R>
 where 
     R: Read + Seek,
 {
     fn request_pos(&self, pos: f32) -> bool {
         // self.seek_samples(0); //TODO
         true
-    }
-}
-
-impl<R> crate::TestTitle for Decoder<R>
-where
-    R: Read + Seek,
-{
-    fn test(&self) {
-        dbg!("testy test");
     }
 }
 
