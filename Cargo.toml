@@ -10,31 +10,14 @@ exclude = ["assets/**", "tests/**"]
 edition = "2021"
 
 [dependencies]
-<<<<<<< HEAD
 cpal = "0.15"
-||||||| parent of c361a5d (switch to fork for cpal)
-cpal = "0.13"
-=======
-# cpal = "0.13"
-cpal = { git = "https://github.com/alexmoon/cpal.git" }
->>>>>>> c361a5d (switch to fork for cpal)
 claxon = { version = "0.4.2", optional = true }
 hound = { version = "3.3.1", optional = true }
 lewton = { version = "0.10", optional = true }
-<<<<<<< HEAD
 # minimp3_fixed = { version = "0.5.4", optional = true}
-||||||| parent of c361a5d (switch to fork for cpal)
-# minimp3 = { version = "0.5.0", optional = true }
-=======
->>>>>>> c361a5d (switch to fork for cpal)
-minimp3 = { git = "https://github.com/dskleingeld/minimp3-rs.git", optional = true }
-<<<<<<< HEAD
+minimp3_fixed = { package = "minimp3", git = "https://github.com/dvdsk/minimp3-rs.git", optional = true }
 symphonia = { version = "0.5.2", optional = true, default-features = false }
 crossbeam-channel = { version = "0.5.8", optional = true }
-||||||| parent of c361a5d (switch to fork for cpal)
-# minimp3 = { path = "../minimp3-rs", optional = true }
-=======
->>>>>>> c361a5d (switch to fork for cpal)
 
 [features]
 default = ["flac", "vorbis", "wav", "mp3"]
